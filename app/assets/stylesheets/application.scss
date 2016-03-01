@@ -13,3 +13,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-formhelpers";
+
+body {
+  padding-top: 70px;
+}
