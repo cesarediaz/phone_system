@@ -1,16 +1,1 @@
-%form(action='#' method='post' class='form-group')
-  %div.col-sm-10
-    .bfh-selectbox.bfh-countries{'data-country': '', 'data-flags': 'true'}
-      %input{type: 'hidden', value: '', id: 'country_code'}/
-      %a.bfh-selectbox-toggle{'data-toggle': 'bfh-selectbox', href: '#', role: 'button'}
-        %span.bfh-selectbox-option.input-medium{'data-option': ''}
-        %b.caret
-      .bfh-selectbox-options
-        %input.bfh-selectbox-filter{type: 'text'}/
-        %div{role: 'listbox'}
-          %ul{role: 'option'}
-
-  %div.col-sm-10
-    %button.btn.btn-default(type='submit') Send
-
-
+= render 'form'

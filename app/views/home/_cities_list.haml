@@ -1,0 +1,5 @@
+.row
+  - @cities.each do |city|
+    .col-md-4= city.name
+
+= paginate @cities, params: { controller: 'home', action: 'cities' }

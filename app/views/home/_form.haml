@@ -1,0 +1,14 @@
+%form(action="#{home_cities_path}" method='GET' class='form-group' id='country-form')
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+  %div.col-sm-10
+    .bfh-selectbox.bfh-countries{'data-country': '', 'data-flags': 'true', 'data-name': 'country'}
+      %input{type: 'hidden', value: ''}
+      %a.bfh-selectbox-toggle{'data-toggle': 'bfh-selectbox', href: '#', role: 'button'}
+        %span.bfh-selectbox-option.input-medium{'data-option': ''}
+        %b.caret
+      .bfh-selectbox-options
+        %input.bfh-selectbox-filter{type: 'text'}/
+        %div{role: 'listbox'}
+          %ul{role: 'option'}
+  %div.col-sm-10
+    %button.btn.btn-default(type='submit') Send
