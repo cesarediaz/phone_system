@@ -5,8 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 COUNTRIES = {
   'AF': 'Afghanistan',
   'AL': 'Albania',
@@ -253,4 +251,10 @@ COUNTRIES = {
 
 COUNTRIES.each do |code, name|
   Country.create(code: code, name: name)
+end
+
+Country.all.each do |country|
+  (1..10).each do |n|
+    City.create(country_id: country.id, name: "City #{n} - #{country.code}")
+  end
 end
