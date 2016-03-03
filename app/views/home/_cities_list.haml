@@ -1,5 +1,5 @@
 .row
   - @cities.each do |city|
-    .col-md-4= city.name
+    .col-md-4.panel.panel-default= link_to city.name, "/api/v1/phones/get_list?city_id=#{city.id}", target: 'blank'
 
 = paginate @cities, params: { controller: 'home', action: 'cities' }

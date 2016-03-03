@@ -254,7 +254,13 @@ COUNTRIES.each do |code, name|
 end
 
 Country.all.each do |country|
-  (1..10).each do |n|
+  (0..5).each do |n|
     City.create(country_id: country.id, name: "City #{n} - #{country.code}")
+  end
+end
+
+City.all.each do |city|
+  (0..10).each do |n|
+    Phone.create(city_id: city.id, number: "#{(rand() * 100000000).to_i}")
   end
 end
