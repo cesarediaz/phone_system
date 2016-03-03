@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'home/cities' => 'home#cities'
+  resources :cities, only: :index
   root 'home#index'
 end

@@ -1,4 +1,4 @@
-%form(action="#{home_cities_path}" method='GET' class='form-group' id='country-form')
+%form(action="#{cities_path}" method='GET' class='form-group' id='country-form')
   = hidden_field_tag :authenticity_token, form_authenticity_token
   %div.col-sm-10
     .bfh-selectbox.bfh-countries{'data-country': '', 'data-flags': 'true', 'data-name': 'country'}
