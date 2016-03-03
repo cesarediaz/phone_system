@@ -16,9 +16,9 @@ module Api
 
       def exist_phone?(phone)
         if !phone.nil?
-          { terms: terms, status: 'success' }
+          { terms: terms, status: 'success', message: 'phone number exist' }
         else
-          { status: 'failure', message: 'phone number does not exist' }
+          { terms: '', status: 'failure', message: 'phone number does not exist' }
         end
       end
 
