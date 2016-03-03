@@ -38,6 +38,12 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'database_cleaner'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

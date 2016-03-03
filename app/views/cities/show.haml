@@ -1,4 +1,6 @@
-%h3= @city.name
+.row
+  %h3.col-md-6= @city.name
+  %h3.col-md-6= link_to 'API get_list(direct link)', "/api/v1/phones/get_list?city_id=#{@city.id}", target: 'blank'
 %hr
 .row
   - @phones.each do |phone|

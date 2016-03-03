@@ -4,33 +4,41 @@ module Api
       respond_to :json
 
       def get_list
-        @cities = {}
-        if params[:city_id] && !params[:city_id].empty?
-          exist_city_id(params)
-        else
-          @cities = { error: 'Bad request. Please provide a valid city ID' }
-        end
-
-        respond_with @cities
+        respond_with cities(params)
       end
 
       def order_number
-        @phone = Phone.find_by(number: params['number'])
-        if !@phone.nil?
-          response = { terms: terms, status: 'success' }
-        else
-          response = { status: 'failure' }
-        end
-        respond_with response
+        phone = Phone.find_by(number: params['number'])
+        respond_with exist_phone?(phone)
       end
 
       private
 
-      def exist_city_id(params)
+      def exist_phone?(phone)
+        if !phone.nil?
+          { terms: terms, status: 'success' }
+        else
+          { status: 'failure', message: 'phone number does not exist' }
+        end
+      end
+
+      def exist_city?(params)
         if City.exists?(params['city_id'])
           @cities = City.find(params['city_id']).phones
         else
-          { error: 'This city ID does not exist' }
+          { status: 'failure', error: 'This city ID does not exist' }
+        end
+      end
+
+      def city_id_valid?(params)
+        /^\d+$/ === params
+      end
+
+      def cities(params)
+        if params[:city_id] && !city_id_valid?(params[:city_id])
+          { status: 'failure', error: 'Bad request. Please provide a valid city ID' }
+        elsif params[:city_id] && !params[:city_id].empty?
+          exist_city?(params)
         end
       end
 
