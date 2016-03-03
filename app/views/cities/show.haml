@@ -1,0 +1,9 @@
+%h3= @city.name
+%hr
+.row
+  - @phones.each do |phone|
+    - plus = [true, false].sample ? '-fake' : ''
+    .col-md-8.panel.panel-default
+      %h4.pull-left= "#{phone.number}#{plus}"
+    .col-md-4.panel.panel-default
+      %h4.pull-= link_to("Order Number(Api Request #{plus})", "/api/v1/phones/order_number?number=#{phone.number}#{plus}", target: 'blank')

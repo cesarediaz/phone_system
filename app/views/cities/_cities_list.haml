@@ -1,8 +1,6 @@
 .row
   - @cities.each do |city|
-    .col-md-11.panel.panel-default
-      %h4.pull-left= link_to city.name, "/api/v1/phones/get_list?city_id=#{city.id}", target: 'blank'
-    .col-md-1.panel.panel-default
-      %h4.pull-right= link_to 'Search', '#'
+    .col-md-12.panel.panel-default
+      %h4.pull-left= link_to city.name, city_path(city)
 
 = paginate @cities
