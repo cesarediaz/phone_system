@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302210644) do
+ActiveRecord::Schema.define(version: 20160304024147) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160302210644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "cities", ["country_id"], name: "index_cities_on_country_id"
 
   create_table "countries", force: :cascade do |t|
     t.string   "code"
@@ -33,5 +35,7 @@ ActiveRecord::Schema.define(version: 20160302210644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "phones", ["city_id"], name: "index_phones_on_city_id"
 
 end
